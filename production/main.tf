@@ -2,7 +2,7 @@ terraform {
   cloud {
     organization = "tfcloud-organization"
     workspaces {
-      name = "production"
+      name = "poc-tfcloud-production"
     }
   }
 }
