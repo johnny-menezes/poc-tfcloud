@@ -23,6 +23,7 @@ module "vpc-module" {
   source  = "app.terraform.io/tfcloud-organization/vpc-module/aws"
   version = "1.0.4"
   cidr    = var.tfc_subnet_cidr
+  cidr_block = var.cidr_block_vpc
 }
 
 variable "tfc_subnet_cidr" {}
