@@ -21,5 +21,10 @@ resource "aws_s3_bucket" "mybucket" {
 
 module "vpc-module" {
   source  = "app.terraform.io/tfcloud-organization/vpc-module/aws"
-  version = "1.0.0"
+  version = "1.0.2"
+  cidr    = var.tfc_subnet_cidr
+}
+
+variable "tfc_subnet_cidr" {
+  
 }
