@@ -17,7 +17,3 @@ resource "random_pet" "s3" {}
 resource "random_pet" "ec2" {}
 resource "random_pet" "lambda" {}
 
-output "vpc_name" {
-  value = random_pet.vpc.id
-  
-}
