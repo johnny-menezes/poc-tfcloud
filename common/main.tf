@@ -9,7 +9,7 @@ terraform {
   }
 }
 
-data "terraform_remote_state" "production" {
+data "terraform_remote_state" "poc-tfcloud-production" {
   backend = "remote"
 
   config = {
@@ -33,7 +33,7 @@ module "vpc-module" {
   source  = "app.terraform.io/tfcloud-organization/vpc-module/aws"
   version = "1.0.7"
   cidr    = var.tfc_subnet_cidr
-  name    = data.terraform_remote_state.production.outputs.vpc_name
+  name    = data.terraform_remote_state.poc-tfcloud-production.outputs.vpc_name
 
 }
 
