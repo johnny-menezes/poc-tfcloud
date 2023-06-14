@@ -1,4 +1,4 @@
-###### TFCLOUD ############
+###### TFCLOUD ##############
 
 terraform {
   cloud {
