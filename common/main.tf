@@ -21,8 +21,6 @@ data "terraform_remote_state" "production" {
 }
 
 
-resource "random_pet" "vpc" {}
-resource "random_pet" "s3" {}
 resource "random_pet" "rds" {}
 resource "random_pet"  "lambda" {}
 
@@ -35,7 +33,7 @@ module "vpc-module" {
   source  = "app.terraform.io/tfcloud-organization/vpc-module/aws"
   version = "1.0.7"
   cidr    = var.tfc_subnet_cidr
-  name    = data.terraform_remote_state.production.outputs.vpc_id
+  name    = data.terraform_remote_state.production.outputs.vpc_name
 
 }
 
