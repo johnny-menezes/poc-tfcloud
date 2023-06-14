@@ -18,6 +18,7 @@ resource "random_pet" "vpc" {}
 resource "random_pet" "s3" {}
 resource "random_pet" "ec2" {}
 resource "random_pet" "lambda" {}
+resource "random_pet" "rds" {}
 
 output "vpc_name" {
   value = random_pet.vpc.id
