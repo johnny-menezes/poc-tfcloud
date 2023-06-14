@@ -35,7 +35,7 @@ module "vpc-module" {
   source  = "app.terraform.io/tfcloud-organization/vpc-module/aws"
   version = "1.0.7"
   cidr    = var.tfc_subnet_cidr
-  name    = data.terraform_remote_state.production.outputs.vpc_name
+  name    = data.terraform_remote_state.production.outputs.vpc_id
 
 }
 
