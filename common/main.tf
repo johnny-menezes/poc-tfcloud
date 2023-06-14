@@ -1,4 +1,4 @@
-###### TFCLOUD #########
+###### TFCLOUD ##############
 
 terraform {
   cloud {
@@ -9,8 +9,18 @@ terraform {
   }
 }
 
-resource "random_pet" "vpc" {}
-resource "random_pet" "s3" {}
+data "terraform_remote_state" "production" {
+  backend = "remote"
+
+  config = {
+    organization = "tfcloud-organization"
+    workspaces   = {
+      name = "poc-tfcloud-production"
+    }
+  }
+}
+
+
 resource "random_pet" "rds" {}
 resource "random_pet"  "lambda" {}
 
@@ -21,8 +31,9 @@ resource "aws_s3_bucket" "mybucket" {
 
 module "vpc-module" {
   source  = "app.terraform.io/tfcloud-organization/vpc-module/aws"
-  version = "1.0.6"
+  version = "1.0.7"
   cidr    = var.tfc_subnet_cidr
+  name    = data.terraform_remote_state.production.outputs.vpc_name
 
 }
 
