@@ -12,6 +12,7 @@ terraform {
 resource "random_pet" "vpc" {}
 resource "random_pet" "s3" {}
 resource "random_pet" "rds" {}
+resource "random_pet"  "lambda" {}
 
 resource "aws_s3_bucket" "mybucket" {
   bucket_prefix = "poc-deploy-dev"
