@@ -1,3 +1,4 @@
-variable "region" {
-  default = "us-east-1"
+variable "TF_VAR_region" {
+  description = "AWS region."
+  type = string
 }
