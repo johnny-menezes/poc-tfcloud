@@ -11,9 +11,9 @@ terraform {
 
 
 
-provider "aws" {
-  region = TF_VAR_region
-}
+#provider "aws" {
+#  region = TF_VAR_region
+#}
 
 resource "aws_s3_bucket" "bucket-poc-tf-cloud" {
   bucket = "bucket-poc-tf-cloud"
