@@ -10,17 +10,10 @@ terraform {
 }
 
 
-######### RESOURCES #################
+provider "aws" {
+  region = var.region
+}
 
-resource "random_pet" "vpc"    {}
-resource "random_pet" "s3"     {}
-#resource "random_pet" "ec2"    {}
-#resource "random_pet" "lambda" {}
-#resource "random_pet" "rds"    {}
-
-
-####### OUTPUTS     #################
-
-output "vpc_name" {
-  value = random_pet.vpc.id
+resource "aws_s3_bucket" "bucket-poc-tf-cloud" {
+  bucket = "bucket-poc-tf-cloud"
 }
