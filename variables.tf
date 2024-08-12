@@ -1,1 +1,4 @@
-variable "region" {}
+variable "TF_region" {
+
+
+}
