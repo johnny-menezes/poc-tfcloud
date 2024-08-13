@@ -1,13 +1,13 @@
-######### TF CLOUD ############
-
-terraform {
-  cloud {
-    organization = "Gopoints-InfraOps"
-    workspaces {
-      name = "poc-iac-gopoints"
-    }
-  }
-}
+########## TF CLOUD ############
+#
+#terraform {
+#  cloud {
+#    organization = "Gopoints-InfraOps"
+#    workspaces {
+#      name = "poc-iac-gopoints"
+#    }
+#  }
+#}
 
 
 
