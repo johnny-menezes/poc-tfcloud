@@ -15,11 +15,4 @@ provider "aws" {
 
 }
 
-  #default_tags {
-  # tags = {
-  #   Environment     =  ""
-  #   Service         = "map-migrated"
-  # }
-  #
-  #}
 

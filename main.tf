@@ -33,3 +33,26 @@ output "public_ip" {
   value = aws_instance.example.public_ip
 }
 */
+
+
+#######################################
+## Criação do resource SecretManager ##
+#######################################
+resource "random_string" "random" {
+  length           = 4
+  special          = false
+}
+
+resource "aws_secretsmanager_secret" "clientidA" {
+  name = join("-", [ var.secretname, random_string.random.result])
+  tags = {
+    Environment = var.environment
+    Provisioner = var.provisioner
+    Repository  = var.repo
+  }
+}
+
+resource "aws_secretsmanager_secret_version" "clientidA" {
+  secret_id     = aws_secretsmanager_secret.clientidA.id
+  secret_string = jsonencode(var.clientid)
+}
