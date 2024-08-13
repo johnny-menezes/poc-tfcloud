@@ -9,15 +9,15 @@ terraform {
   }
 }
 
-### Configure AWS Provider ###
-provider "aws" {
- region = "us-east-1"
- assume_role {
- role_arn = "arn:aws:iam::897722698330:role/open-id-connect-tf-cloud"
-
- }
-
-}
+#### Configure AWS Provider ###
+#provider "aws" {
+# region = "us-east-1"
+# assume_role {
+# role_arn = "arn:aws:iam::897722698330:role/open-id-connect-tf-cloud"
+#
+# }
+#
+#}
 
   #default_tags {
   # tags = {
