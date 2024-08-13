@@ -1,32 +1,28 @@
-######### Resources ##############
+/*
+module "asm_gopoints" {
+  source  = "app.terraform.io/Gopoints-InfraOps/asm/aws"
+  version = "0.0.1"
 
-######### AMI to Amazon Linux ####
+  ### Use Code ####
 
-data "aws_ami" "amazon_linux" {
-  most_recent = true
-  owners      = ["amazon"]
+  secret_name   = var.secret_name
+  secret_values = var.secret_values
 
-  filter {
-    name   = "name"
-    values = ["amzn2-ami-hvm-2.*"]
-  }
+  ### Tags ####
+  environment = var.environment
+  provisioner = var.provisioner
+  repo        = var.repo
+   
 
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
+
+
+
+
+
+
+
+
+
+
 }
-
-######### create ec2  #############
-
-resource "aws_instance" "example" {
-  ami           = data.aws_ami.amazon_linux.id
-  instance_type = "t3a.micro"
-  tags = {
-    Name = "ec2-demo-gopoints"
-    Environment = var.environment
-    Provisioner = var.provisioner
-    Repository  = var.repo
-  }
-}
-
+*/
