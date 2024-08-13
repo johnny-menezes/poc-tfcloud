@@ -1,18 +1,9 @@
-########## TF CLOUD ############
-#
-#terraform {
-#  cloud {
-#    organization = "Gopoints-InfraOps"
-#    workspaces {
-#      name = "poc-iac-gopoints"
-#    }
-#  }
-#}
+######### Resources ############
 
 
 
 # Defina um data source para obter a AMI do Amazon Linux
-
+/*
 data "aws_ami" "amazon_linux" {
   most_recent = true
   owners      = ["amazon"]
@@ -41,3 +32,4 @@ resource "aws_instance" "example" {
 output "public_ip" {
   value = aws_instance.example.public_ip
 }
+*/
