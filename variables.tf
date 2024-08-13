@@ -1,32 +1,11 @@
-#variable "TF_VAR_region" {
-#  description = "AWS region."
-#  type = string
-#}
+####################################
+####### Tags Variables #############
+####################################
 
-
-
-########################
-## Resource Variables ##
-########################
-variable "secretname" {
-    type    = string
-    default = "value"
-}
-variable "clientid"{
-    default = {
-        client_id     = "initial_value"
-        client_secret = "initial_value"
-    }
-    type    = map(string)
-}
-
-####################
-## Tags Variables ##
-####################
 variable "environment"{
     description = "Environment of the application"
     type        = string
-    default     = "dev"
+    default     = "demo"
 }
 
 variable "provisioner" {
