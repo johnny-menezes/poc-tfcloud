@@ -1,4 +1,4 @@
-#### Terraform and AWS Provider version being used ###
+#### Terraform and AWS Provider version being used ####
 terraform { 
 
  required_providers {
@@ -9,7 +9,7 @@ terraform {
   }
 }
 
-### Configure AWS Provider ###
+### Configure AWS Provider ####
 provider "aws" {
  region = "us-east-1"
 
