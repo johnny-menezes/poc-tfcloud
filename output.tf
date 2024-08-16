@@ -1,6 +1,6 @@
 ##### output secretsmanager ########
 
-/*
+
 output "arn" {
   description = "AWS SecretManager Secret ARN"
   value       = module.asm_gopoints.arn
@@ -22,4 +22,3 @@ output "secret_version" {
   sensitive   = true
 }
 
-*/
