@@ -2,7 +2,7 @@
 
 ######### AMI to Amazon Linux #####
 
-/*
+
 data "aws_ami" "amazon_linux" {
   most_recent = true
   owners      = ["amazon"]
@@ -31,4 +31,3 @@ resource "aws_instance" "example" {
   }
 }
 
-*/
