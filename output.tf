@@ -1,5 +1,6 @@
 ##### output secretsmanager ########
 
+/*
 
 output "arn" {
   description = "AWS SecretManager Secret ARN"
@@ -22,3 +23,4 @@ output "secret_version" {
   sensitive   = true
 }
 
+*/

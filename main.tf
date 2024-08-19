@@ -1,4 +1,4 @@
-
+/*
 module "asm_gopoints" {
   source  = "app.terraform.io/Gopoints-InfraOps/asm/aws"
   version = "0.0.1"
@@ -16,13 +16,6 @@ module "asm_gopoints" {
 
 
 
-
-
-
-
-
-
-
-
 }
 
+*/
