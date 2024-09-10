@@ -13,7 +13,7 @@ pipeline {
         stage('checkout') {
             steps {
                  script{
-                        dir("terraform")
+                        dir("./")
                         {
                             git "https://github.com/johnny-menezes/poc-tfcloud.git"
                         }
