@@ -3,23 +3,20 @@ pipeline {
     parameters {
         booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
     } 
-    environment {
+     environment {
         AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+        GIT_TOKEN             = credentials('GIT_TOKEN')
+        
     }
 
    agent  any
     stages {
-        stage('checkout') {
+       stage('Checkout') {
             steps {
-                 script{
-                        dir('nome de um diretório caso seja necessário configurar')
-                        {
-                            git "https://github.com/johnny-menezes/poc-tfcloud.git"
-                        }
-                    }
-                }
+                git branch: 'jenkins-include-tfplan', credentialsId: 'GIT_TOKEN', url: 'https://github.com/johnny-menezes/poc-tfcloud'
             }
+        }
 
         stage('Plan') {
             steps {
