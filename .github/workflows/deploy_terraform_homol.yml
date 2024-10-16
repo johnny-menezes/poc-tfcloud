@@ -1,4 +1,4 @@
-name: "Terraform-ci-dc-homol"
+name: "Terraform-ci-cd-homol"
 on:
   push:
     branches:
