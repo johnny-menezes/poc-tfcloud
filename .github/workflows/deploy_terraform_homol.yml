@@ -1,4 +1,4 @@
-name: "Terraform-CI-CD"
+name: "Terraform-ci-dc-homol"
 on:
   push:
     branches:
@@ -28,8 +28,8 @@ jobs:
 
 
 
-  deploy-dev-infra:
-    name: Deploy Infra DEV
+  deploy-homol-infra:
+    name: Deploy Homol Infra
     runs-on: ubuntu-latest
 
     defaults:
@@ -47,13 +47,6 @@ jobs:
           name: terraform
           path: .
   
-
-      - name: Configure AWS credentials from AWS account
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id   : ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-id: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
@@ -67,8 +60,10 @@ jobs:
       - name: Terraform Init
         id: init
         env:
-          AWS_BUCKET_NAME: ${{ secrets.AWS_BUCKET_NAME }}
-          AWS_BUCKET_KEY_NAME: ${{ secrets.AWS_BUCKET_KEY_NAME }}
+          AWS_ACCESS_KEY_ID     : ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY : ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_BUCKET_NAME       : ${{ secrets.AWS_BUCKET_NAME }}
+          AWS_BUCKET_KEY_NAME   : ${{ secrets.AWS_BUCKET_KEY_NAME }}
         run: terraform init -backend-config="bucket=${AWS_BUCKET_NAME}" -backend-config="key=${AWS_BUCKET_KEY_NAME}" -backend-config="region=${AWS_REGION}"
 
       - name: Terraform Validate
@@ -134,7 +129,7 @@ jobs:
     environment:
         name: prod
 
-    needs: deploy-dev-infra
+    needs: deploy-homol-infra
     steps:
       - name: Download Artifact
         uses: actions/download-artifact@v2
@@ -142,14 +137,6 @@ jobs:
           name: terraform
           path: .
   
-
-      - name: Configure AWS credentials from AWS account
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id   : ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-id: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region          : ${{ secrets.AWS_REGION }}
-
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
@@ -163,8 +150,10 @@ jobs:
       - name: Terraform Init
         id: init
         env:
-          AWS_BUCKET_NAME     : ${{ secrets.AWS_BUCKET_NAME }}
-          AWS_BUCKET_KEY_NAME : ${{ secrets.AWS_BUCKET_KEY_NAME }}
+          AWS_ACCESS_KEY_ID     : ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY : ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_BUCKET_NAME       : ${{ secrets.AWS_BUCKET_NAME }}
+          AWS_BUCKET_KEY_NAME   : ${{ secrets.AWS_BUCKET_KEY_NAME }}
         run: terraform init -backend-config="bucket=${AWS_BUCKET_NAME}" -backend-config="key=${AWS_BUCKET_KEY_NAME}" -backend-config="region=${AWS_REGION}"
 
       - name: Terraform Validate
